@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav>
-            <a asp-area="" asp-page="/StarWars">Star Wars</a>
-            <a asp-area="" asp-page="/OwnApi">???</a>
-        </nav>
-    </header>
+    <nav>
+        <a asp-area="" asp-page="/Index">HOME</a>
+        <a asp-area="" asp-page="/StarWarsPeople">Star Wars - People</a>
+        <a asp-area="" asp-page="/StarWarsPlanets">Star Wars - Planets</a>
+        <a asp-area="" asp-page="/OwnApi">???</a>
+    </nav>
     <div id="main">@RenderBody()</div>
 </body>
 </html>

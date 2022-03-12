@@ -1,7 +1,10 @@
+using Pew;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddTransient<StarWarsLogic>();
 
 var app = builder.Build();
 

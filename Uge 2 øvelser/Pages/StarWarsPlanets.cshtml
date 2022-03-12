@@ -1,0 +1,51 @@
+﻿@page
+
+@using Pew
+@using Pew.Models
+
+@model StarWarsPlanetsModel
+
+@{
+    ViewData["Title"] = "Star Wars - People";
+}
+
+@if (Model.data?.results != null)
+{
+    <div id="totalCount">Total number of planets: @Model.data.count</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Terrain</th>
+                <th>Population</th>
+                <th>Diameter</th>
+                <th>Climate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (StarWarsPlanet starWarsPlanet in Model.data.results)
+            {
+                <tr>
+                    <td>@starWarsPlanet.name</td>
+                    <td>@starWarsPlanet.terrain</td>
+                    <td>@starWarsPlanet.population</td>
+                    <td>@starWarsPlanet.diameter</td>
+                    <td>@starWarsPlanet.climate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <form method="post">
+        @if (!string.IsNullOrWhiteSpace(Model.data.previous))
+        {
+            <button asp-page-handler="PreviousPage">Previous</button>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.data.next))
+        {
+            <button asp-page-handler="NextPage">Next</button>
+        }
+    </form>
+}
