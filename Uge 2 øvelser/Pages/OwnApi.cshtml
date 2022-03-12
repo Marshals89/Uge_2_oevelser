@@ -1,10 +1,36 @@
 ﻿@page
+
 @model OwnApiModel
+
 @{
     ViewData["Title"] = "???";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<input type="number" id="personId" value="1" />
+<button onclick="starWars.getPerson()">Get Star Wars person</button>
+
+<div id="person"></div>
+
+<script type="text/javascript">
+    let starWars = (function () {
+        return {
+            getPerson: function () {
+                $.ajax({
+                  url: '/StarWars?id=' + ($('#personId').val() || 1),
+                  success: function(data, status, xhr) {
+                    renderPerson(data);
+                  },
+                  error: function() {
+                    alert('No person found under that ID');
+                  }
+                });
+            }
+        };
+
+        function renderPerson(person) {
+            $.each(person, function () {
+                $('#person').append(this + '<br />');
+            });
+        }
+    })();
+</script>

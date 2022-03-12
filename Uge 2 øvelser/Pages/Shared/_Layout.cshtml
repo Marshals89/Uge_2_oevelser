@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Uge 2 øvelser</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script type="text/javascript" src="~/js/jQuery.js" asp-append-version="true"></script>
 </head>
 <body>
     <nav>
         <a asp-area="" asp-page="/Index">HOME</a>
         <a asp-area="" asp-page="/StarWarsPeople">Star Wars - People</a>
         <a asp-area="" asp-page="/StarWarsPlanets">Star Wars - Planets</a>
-        <a asp-area="" asp-page="/OwnApi">???</a>
+        <a asp-area="" asp-page="/OwnApi">Own API</a>
     </nav>
     <div id="main">@RenderBody()</div>
 </body>

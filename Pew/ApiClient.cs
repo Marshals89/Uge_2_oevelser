@@ -1,5 +1,5 @@
 ﻿using RestSharp;
-using System.Net.Http.Json;
+using System.Net;
 
 namespace Pew
 {
@@ -17,7 +17,7 @@ namespace Pew
             try
             {
                 RestResponse<T> response = await client.ExecuteAsync<T>(request);
-                return response.Data;
+                return response.StatusCode == HttpStatusCode.OK ? response.Data : default;
             }
             catch
             {

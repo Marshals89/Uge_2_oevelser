@@ -37,7 +37,7 @@
         </tbody>
     </table>
 
-    <form method="post">
+    <form method="get">
         @if (!string.IsNullOrWhiteSpace(Model.data.previous))
         {
             <button asp-page-handler="PreviousPage">Previous</button>

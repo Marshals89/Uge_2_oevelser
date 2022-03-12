@@ -18,5 +18,11 @@ namespace Pew
             string uri = string.Format("{0}/{1}{2}", baseUri, "planets?page=", page);
             return await ApiClient.Execute<StarWarsPlanetsResponse>(Method.Get, uri);
         }
+
+        public async Task<StarWarsPerson> GetPerson(int id)
+        {
+            string uri = string.Format("{0}/{1}{2}", baseUri, "people/", id);
+            return await ApiClient.Execute<StarWarsPerson>(Method.Get, uri);
+        }
     }
 }
